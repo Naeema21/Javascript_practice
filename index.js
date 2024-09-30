@@ -15,12 +15,14 @@ const arr1 = [1, 0, 0, 0, 5, 0, 0, 7, 0, 0];
 // 1. Reverse String 
 
 const reverseString = (str) => {
-    var reversedString = '';
-    for (var i = str.length - 1; i >= 0; i--) {
-        reversedString += str[i];
+
+    var reversedString = ''
+    for (let index = str.length - 1; index >= 0; index--) {
+        const element = str[index];
+        reversedString += element
     }
 
-    return reversedString;
+    return reversedString
 }
 
 console.log('Reverse String:', reverseString(inputString), isPalindrome(inputString));
@@ -32,20 +34,25 @@ function isPalindrome(string) {
 }
 
 // 3. Remove Duplicate Array 
-const removeDuplicates = (arr) => {
+const removeDuplicates = (array) => {
     var uniqueArr = [];
     var duplicateArr = []
 
-    for (let i = 0; i < arr.length; i++) {
-        if (uniqueArr.indexOf(arr[i]) === -1) {
-            uniqueArr.push(arr[i]);
+    for (let index = 0; index < array.length; index++) {
+        const element = array[index];
+
+        if (uniqueArr.indexOf(element) == -1) {
+            uniqueArr.push(element)
         } else {
-            duplicateArr.push(arr[i])
+            duplicateArr.push(element)
         }
+
     }
 
     return { uniqueArr, duplicateArr };
 }
+
+console.log('removedupliacte', removeDuplicates(arr1))
 
 
 // 4. Find Vowels in String
@@ -55,12 +62,15 @@ const findVowels = (str) => {
     var count = 0;
     var appearedVowels = {};
 
-    for (let i = 0; i < str.length; i++) {
-        if (vowels.includes(str[i])) {
-            if (appearedVowels[str[i]]) {
-                appearedVowels[str[i]]++;
+    for (let index = 0; index < str.length; index++) {
+        const element = str[index];
+
+        if (vowels.includes(element)) {
+            if (appearedVowels[element]) {
+                appearedVowels[element]++
+
             } else {
-                appearedVowels[str[i]] = 1;
+                appearedVowels[element] = 1;
             }
             count++;
         }
@@ -316,4 +326,124 @@ const findMissingNumber = (array) => {
 }
 
 console.log('missing number from arry', findMissingNumber(numbers))
+
+// reverse string store in array and remove duplicate 
+
+const stringInArray = (string) => {
+    var reversearray = []
+    var uniqueArr = []
+
+    for (let index = string.length - 1; index >= 0; index--) {
+        const element = string[index];
+        reversearray.push(element)
+        if (!uniqueArr.includes(element)) {
+            uniqueArr.push(element)
+        }
+    }
+
+    return { reversearray, uniqueArr }
+}
+
+console.log('reverse string store in array and remove duplicate', stringInArray(inputString))
+
+
+// given array of two element we have to check first element contain letters of all the seond element or not
+
+const a = ['Mary', 'Army']
+const b = ["apple", "banana"]
+
+const checkWords = (array) => {
+
+
+    var fword = array[0].toLowerCase();
+    var sword = array[1].toLowerCase();
+
+    for (var index = 0; index < sword.length; index++) {
+        var element = sword[index];
+
+        return fword.includes(element)
+    }
+}
+
+console.log('check array contain ovwels or not', checkWords(a), checkWords(b))
+
+
+const add = (x, y) => {
+    if (!y) {
+        return add2 = (y) => {
+            return x + y;
+        }
+    } else {
+        return x + y
+    }
+}
+
+console.log(add(2)(3), add(2, 3))
+
+// from string  sperate number and alphabhates
+
+
+const sperateString = (string) => {
+    var alphabhates = ''
+    var number = ''
+    for (let index = 0; index < string.length; index++) {
+        const element = string[index];
+        if (isNaN(element)) {
+            alphabhates = alphabhates.concat(element)
+        } else {
+            number = number.concat(element)
+        }
+    }
+
+    return { alphabhates, number }
+
+}
+
+console.log(sperateString('abc7d34gh8'))
+
+
+// input  'abcdef'  '1234' output - a1b2c3d4ef
+
+
+const mergeString = (string, number) => {
+    var marge = ''
+    const maxlength = string.length + number.length
+    console.log(maxlength)
+
+    for (let index = 0; index < maxlength; index++) {
+
+        if (index < string.length) {
+            marge = marge.concat(string[index])
+        }
+
+        if (index < number.length) {
+            marge = marge.concat(number[index])
+        }
+
+    }
+
+    return marge
+}
+
+
+console.log(mergeString('abcdef', '12345'))
+
+var mergeAlternately = function (word1, word2) {
+    let result = ''
+    let maxlength = word1.length + word2.length
+    for (let i = 0; i < maxlength; i++) {
+        if (i < word1.length) {
+            result = result.concat(word1[i])
+        }
+
+        if (i < word2.length) {
+            result = result.concat(word2[i])
+        }
+
+    }
+    return result
+
+};
+
+console.log(mergeAlternately('abc', 'pqr'))
 

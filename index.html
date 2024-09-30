@@ -1,13 +1,75 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<script src="index.js"></script>
+<script src="practice.js"></script>
+
 
 <head>
-    <script src="index.js"></script>
-    <script src="practice.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 
 <body>
-<h1>Namste JS</h1>    
+    <h1 id="hello">hello world </h1>
+    <script>
+        const arr89 = ['a', 'b', 'c']
+
+        let index = 0
+
+        const updatevalue = () => {
+            const getValue = document.getElementById('hello')
+            getValue.onclick = () => {
+                getValue.innerHTML = arr89[index]
+                index = index + 1
+            }
+        }
+
+        updatevalue()
+    </script>
+    <div id="root">
+        <!-- <h1>Namste React</h1> -->
+    </div>
+    <!-- using script -->
+    <!-- <script>
+        const heading = document.createElement('h1');
+        heading.innerHTML = 'Namste React From Script';
+
+        const root = document.getElementById('root')
+        root.appendChild(heading)
+    </script> -->
+    <script>
+    </script>
+
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script>
+        //   <div id="parent">
+        //     <div id="child">
+        //         <h1>h1 tag</h1>
+        //         <h2>h2 tag</h2>
+        //      </div>
+        //    </div>
+        const headingfromreact = React.createElement('div', { id: 'parent' },
+            React.createElement('div', { id: 'child' },
+                [React.createElement('h1', {}, 'h1 tag'), React.createElement('h2', {}, 'h2 tag')]
+            ));
+
+
+        const heading2 = React.createElement('div', { id: parent }, [
+            React.createElement('div', { id: 'child1' }, [
+                React.createElement('h1', {}, 'h1 tag'), React.createElement('h2', {}, 'h2 tag')
+            ]),
+            React.createElement('div', { id: 'child1' }, [
+                React.createElement('h1', {}, 'h1 tag'), React.createElement('h2', {}, 'h2 tag')
+            ])
+        ])
+
+        const rootreact = ReactDOM.createRoot(document.getElementById('root'))
+        rootreact.render(heading2)
+    </script>
 </body>
 
 </html>
